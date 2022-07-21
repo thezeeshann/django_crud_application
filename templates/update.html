@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container mt-5">
+    <div class="row">
+        <h4 class="alert alert-success text-dark fw-bold text-center">Update</h4>
+        <div class="col-sm-6 offset-3">
+            <div class="card p-3">
+                <div class="card-body">
+                    <form action="" method="POST">
+                        {% csrf_token %}
+                        {% if messages %}
+                        {% for message in messages %}
+                        <div class="alert alert-warning" role="alert">
+                            <center><span class="fs-6 fw-bold fst-italic">{{message}}</span></center>
+                          </div>
+                        {% endfor %}
+                        {% endif %}
+                        {{data.as_p}}
+                        <input type="submit" class="btn btn-primary btn-sm fw-bold" value="Update">
+                        <a href="{% url 'showrecords' %}" class="btn btn-primary fw-bold btn-sm">Home</a>
+                    </form>
+                </div>
+                </di>
+            </div>
+        </div>
+    </div>
+
+    {% endblock %}
